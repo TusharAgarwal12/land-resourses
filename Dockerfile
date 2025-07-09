@@ -1,12 +1,5 @@
-# Example simple Node app Dockerfile
-FROM node:18
-
-WORKDIR /app
-
-COPY . .
-
-RUN npm install
-
-EXPOSE 3000
-
-CMD ["node", "index.js"]
+# Use nginx
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
